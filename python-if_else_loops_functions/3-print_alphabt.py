@@ -1,12 +1,9 @@
 #!/usr/bin/python3
 
-alphabet = "".join([chr(i) for i in range(97, 123)])
+alphabet = ""
 
-modified_alphabet = ""
+for i in range(97, 123):
+    if i != 113 and i != 101:
+        alphabet += chr(i)
 
-for char in alphabet:
-    if char == 'q' or char == 'e':
-        continue
-    modified_alphabet += char
-
-print("{}".format(modified_alphabet), end="")
+print("{}".format(alphabet), end="")

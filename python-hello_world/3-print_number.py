@@ -1,4 +1,4 @@
 #!/usr/bin/python3
 number = 98
-
-print(number, "Battery street")
+string = f"{number} Battery street"
+print(string)

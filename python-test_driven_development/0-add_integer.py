@@ -1,4 +1,16 @@
 #!/usr/bin/python3
+"""
+This module contains the function 'add_integer' that adds two integers.
+
+The function handles both integers and floats by casting floats to integers.
+It also raises appropriate exceptions when invalid types or values are passed.
+
+The function can handle:
+- Addition of two integers.
+- Addition of floats, which are cast to integers.
+- TypeErrors if inputs are not integers or floats.
+- OverflowError if floats are 'inf' or 'NaN'.
+"""
 
 def add_integer(a, b=98):
     """

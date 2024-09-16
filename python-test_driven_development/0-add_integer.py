@@ -24,7 +24,7 @@ def add_integer(a, b=98):
     if not isinstance(b, (int, float)):
         raise TypeError("b must be an integer")
 
-    # Handle float overflow and invalid numbers
+    # Handle float overflow and invalid numbers (inf, -inf, nan)
     if isinstance(a, float) and (a == float('inf') or a == float('-inf') or a != a):
         raise OverflowError("cannot convert float infinity or NaN to integer")
     if isinstance(b, float) and (b == float('inf') or b == float('-inf') or b != b):

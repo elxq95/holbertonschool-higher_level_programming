@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-#!/usr/bin/python3
 """
 This module defines a Square class.
 
@@ -8,12 +7,6 @@ The Square class provides:
     - Property getter and setter for size with validation
     - A public method to calculate the area of the square
     - A public method to print the square using the '#' character
-
-Example usage:
-    square = Square(4)
-    print(square.size)  # Output: 4
-    print(square.area())  # Output: 16
-    square.my_print()  # Output: A 4x4 square made of '#' characters
 """
 
 class Square:

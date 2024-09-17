@@ -7,7 +7,7 @@ The Square class provides:
     - Property getters and setters for size and position with validation
     - A public method to calculate the area of the square
     - A public method to print the square using the '#' character with 
-    space for position
+space for position
 """
 
 

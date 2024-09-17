@@ -4,6 +4,7 @@ Module 1-square
 Defines a class Square with a private instance attribute
 """
 
+
 class Square:
     """
     A class that defines a square by its size.
@@ -14,6 +15,6 @@ class Square:
         """
         Initializes a new Square instance.
         Args:
-        size: The size of the square.
+            size: The size of the square.
         """
         self.__size = size # Private instance attribute

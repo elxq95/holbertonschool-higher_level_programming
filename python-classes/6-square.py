@@ -6,7 +6,8 @@ The Square class provides:
     - Private instance attributes: size and position
     - Property getters and setters for size and position with validation
     - A public method to calculate the area of the square
-    - A public method to print the square using the '#' character with space for position
+    - A public method to print the square using the '#' character with 
+    space for position
 """
 
 
@@ -31,7 +32,7 @@ class Square:
         my_print(self): Prints the square with '#' character considering
         position.
     """
-    
+
     def __init__(self, size=0, position=(0, 0)):
         """
         Initialize the square with an optional size and position.

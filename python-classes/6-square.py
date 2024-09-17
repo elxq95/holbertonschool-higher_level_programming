@@ -9,24 +9,27 @@ The Square class provides:
     - A public method to print the square using the '#' character with space for position
 """
 
+
 class Square:
     """
     A class that defines a square by its size and position, and allows the
-    calculation of the square's area as well as printing a visual representation
-    of the square considering position.
+    calculation of the square's area as well as printing a visual
+    representation of the square considering position.
 
     Attributes:
         __size (int): The size of the square (private).
         __position (tuple): The position of the square (private).
 
     Methods:
-        __init__(self, size=0, position=(0, 0)): Initializes the square with an optional size and position.
+        __init__(self, size=0, position=(0, 0)): Initializes the square with
+        an optional size and position.
         size(self): Retrieves the size of the square.
         size(self, value): Sets the size of the square with validation.
         position(self): Retrieves the position of the square.
         position(self, value): Sets the position of the square with validation.
         area(self): Returns the area of the square.
-        my_print(self): Prints the square with '#' character considering position.
+        my_print(self): Prints the square with '#' character considering
+        position.
     """
     
     def __init__(self, size=0, position=(0, 0)):
@@ -38,7 +41,8 @@ class Square:
             position (tuple): The position of the square (default is (0, 0)).
 
         Raises:
-            TypeError: If size is not an integer or position is not a tuple of 2 positive integers.
+            TypeError: If size is not an integer or position is not a tuple
+            of 2 positive integers.
             ValueError: If size is less than 0.
         """
         self.size = size
@@ -111,8 +115,8 @@ class Square:
         """
         Print the square using the '#' character considering the position.
 
-        If the size is 0, print an empty line. Print spaces based on the position
-        before the '#' characters if position[1] > 0.
+        If the size is 0, print an empty line. Print spaces based on the
+        position before the '#' characters if position[1] > 0.
         """
         if self.__size == 0:
             print("")

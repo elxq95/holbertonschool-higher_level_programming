@@ -8,16 +8,20 @@ class Square:
     A class that defines a square by its size
     Attributes:
     the size of the square (private attribute)"""
-    def __init__(self, size):
+
+
+    def __init__(self, size=0):
         """
         initializes a new square instance
         Args:
-            the size of the square.
+            size (int): The size of the square (default is 0).
+            
+        Raises:
+            TypeError: If size is not an integer.
+            ValueError: If size is less than 0.
             """
-        self.__size = size
+        if not isintance(size, int):
+            raise TypeError("size must be an integer")
         if size < 0:
-            raise ValueError
-        if size != int(size):
-            raise TypeError
-
-        
+            raise ValueError("size must be >=0")
+        self.__size = size

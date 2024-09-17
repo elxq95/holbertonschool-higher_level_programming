@@ -9,10 +9,12 @@ The Square class provides:
     - A public method to print the square using the '#' character
 """
 
+
 class Square:
     """
     A class that defines a square by its size and allows the calculation of
-    the square's area as well as printing a visual representation of the square.
+    the square's area as well as printing a visual representation of the
+    square.
 
     Attributes:
         __size (int): The size of the square (private).
@@ -24,7 +26,7 @@ class Square:
         area(self): Returns the area of the square.
         my_print(self): Prints the square with '#' character or an empty line.
     """
-    
+
     def __init__(self, size=0):
         """
         Initialize the square with an optional size.

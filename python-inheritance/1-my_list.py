@@ -1,14 +1,21 @@
-#!/bin/usr/python3
+#!/usr/bin/python3
+"""
+This module provides a function that returns
+the list of sorted integers
+"""
+
+
 class MyList(list):
     """
-    A subclass of the built-in list that includes an additional method to print the list in sorted order.
+    Custom list class that can print itself sorted.
+
+    Parameters:
+    self: the list of integers
+
+    Returns:
+    None
     """
 
-
     def print_sorted(self):
-        """
-        Prints the elements of the list in ascending sorted order.
-        Assumes all elements of the list are of type int.
-        """
-        sorted_list = sorted(self)
-        print(sorted_list)
+        """Prints the list, but sorted (ascending sort)."""
+        print(sorted(self))

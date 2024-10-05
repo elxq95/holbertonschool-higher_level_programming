@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 
-#!/usr/bin/python3
 """This module handles a function that read text in a given file
 """
 

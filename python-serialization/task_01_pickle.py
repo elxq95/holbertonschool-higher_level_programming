@@ -23,13 +23,10 @@ class CustomObject:
         try:
             with open(filename, 'rb') as file:
                 return pickle.load(file)
-        except (FileNotFoundError, pickle.UnpicklingError) as e:
+        except (FileNotFoundError, pickle.UnpicklingError, EOFError) as e:
             print(f"Error while deserializing: {e}")
             return None
 
-# Example usage:
-# obj = CustomObject("John", 25, True)
-# obj.serialize("custom_obj.pickle")
-# loaded_obj = CustomObject.deserialize("custom_obj.pickle")
-# if loaded_obj:
-#     loaded_obj.display()
+# Testing the deserialization error handling
+def test_corrupt_file():
+    # Create a valid object and​⬤

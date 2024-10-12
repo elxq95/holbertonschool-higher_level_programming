@@ -30,11 +30,12 @@ class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
             self.wfile.write(json.dumps(data).encode())
 
         elif self.path == '/status':
-            # Check API status
+            # Correct the status endpoint based on expected test response
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
             self.end_headers()
-            status = {"status": "OK"}
+            # Adjusted status message to match test expectations
+            status = {"status": "healthy"}
             self.wfile.write(json.dumps(status).encode())
         
         else:
@@ -42,7 +43,8 @@ class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
             self.send_response(404)
             self.send_header('Content-type', 'application/json')
             self.end_headers()
-            error_message = {"error": "Endpoint not found"}
+            # Adjusted error message to match test expectations
+            error_message = {"message": "Endpoint not found"}
             self.wfile.write(json.dumps(error_message).encode())
 
 # Set the port number and start the server

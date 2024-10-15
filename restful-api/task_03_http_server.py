@@ -1,57 +1,38 @@
 #!/usr/bin/python3
-
-import http.server
-import socketserver
+"""This module handles a method to fetch posts
+from JSONPlaceholder using requests.get()
+"""
+from http.server import HTTPServer, BaseHTTPRequestHandler
 import json
 
-# Define a request handler by subclassing BaseHTTPRequestHandler
-class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
-    
-    # Handle GET requests
+class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
+
     def do_GET(self):
-        # Check the path to serve different content
+        res_data = {
+                "name": "John",
+                "age": 30,
+                "city": "New York"
+            }
         if self.path == '/':
-            # Send response status code
             self.send_response(200)
-            # Send headers
-            self.send_header('Content-type', 'text/html')
+            self.send_header('Content-Type', 'text/plain')
             self.end_headers()
-            # Send the body of the response
-            self.wfile.write(b"Hello, this is a simple API!")
-        
+            self.wfile.write(b'Hello, this is a simple API!')
         elif self.path == '/data':
-            # Send JSON response for /data endpoint
             self.send_response(200)
-            self.send_header('Content-type', 'application/json')
+            self.send_header('Content-Type', 'application/json')
             self.end_headers()
-            # Sample data
-            data = {"name": "John", "age": 30, "city": "New York"}
-            # Write the JSON data as bytes
-            self.wfile.write(json.dumps(data).encode())
-
+            self.wfile.write(json.dumps(res_data).encode('utf-8'))
         elif self.path == '/status':
-            # Correct the status endpoint based on expected test response
             self.send_response(200)
-            self.send_header('Content-type', 'application/json')
+            self.send_header('Content-Type', 'text/plain')
             self.end_headers()
-            # Adjusted status message to match test expectations
-            status = {"status": "healthy"}
-            self.wfile.write(json.dumps(status).encode())
-        
+            self.wfile.write(b'OK')
         else:
-            # Handle undefined endpoints (404 error)
             self.send_response(404)
-            self.send_header('Content-type', 'application/json')
+            self.send_header('Content-type', 'text/plain')
             self.end_headers()
-            # Adjusted error message to match test expectations
-            error_message = {"message": "Endpoint not found"}
-            self.wfile.write(json.dumps(error_message).encode())
+            self.wfile.write(b'Endpoint not found')
 
-# Set the port number and start the server
-PORT = 8000
-Handler = SimpleHTTPRequestHandler
-
-# Start the HTTP server on localhost:8000
-with socketserver.TCPServer(("", PORT), Handler) as httpd:
-    print(f"Serving on port {PORT}")
-    httpd.serve_forever()
+httpd = HTTPServer(('', 8000), SimpleHTTPRequestHandler)
+httpd.serve_forever()

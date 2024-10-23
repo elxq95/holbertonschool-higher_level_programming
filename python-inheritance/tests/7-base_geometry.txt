@@ -1,0 +1,108 @@
+The ``integer_validator`` module
+
+Using ``integer_validator``
+
+First, import ``integer_validator`` from the ``7-base_geometry`` file:
+
+    >>> integer_validator_module = __import__('7-base_geometry')
+    >>> BaseGeometry = integer_validator_module.BaseGeometry
+    >>> integer_validator_instance = BaseGeometry()
+
+Examples:
+---------
+Add two arguments as string and int:
+
+    >>> integer_validator_instance.integer_validator("David", 44)
+
+Doctests for BaseGeometry.area()
+-------------------------------
+
+    >>> bg = BaseGeometry()
+    >>> bg.area()
+    Traceback (most recent call last):
+    ...
+    Exception: area() is not implemented
+
+Test for Type errors:
+---------------------
+Add a boolean in the argument as value:
+
+    >>> integer_validator_instance.integer_validator("John", True)
+    Traceback (most recent call last):
+    ...
+    TypeError: John must be an integer
+
+Add 0 in the argument as value:
+
+    >>> integer_validator_instance.integer_validator("John", 0)
+    Traceback (most recent call last):
+        ...
+    ValueError: John must be greater than 0
+
+Add negative number in the argument as value:
+
+    >>> integer_validator_instance.integer_validator("John", -6)
+    Traceback (most recent call last):
+        ...
+    ValueError: John must be greater than 0
+
+Add string in the argument as value:
+
+    >>> integer_validator_instance.integer_validator("John", "6")
+    Traceback (most recent call last):
+        ...
+    TypeError: John must be an integer
+
+Add a tuple of integer(s) in the argument as value:
+
+    >>> integer_validator_instance.integer_validator("John", (6,))
+    Traceback (most recent call last):
+        ...
+    TypeError: John must be an integer
+
+Add a set of integer(s) in the argument as value:
+
+    >>> integer_validator_instance.integer_validator("John", {6,5})
+    Traceback (most recent call last):
+        ...
+    TypeError: John must be an integer
+
+Add a list of integer(s) in the argument as value:
+
+    >>> integer_validator_instance.integer_validator("John", [5])
+    Traceback (most recent call last):
+        ...
+    TypeError: John must be an integer
+
+Add a None in the argument as value:
+
+    >>> integer_validator_instance.integer_validator("John", None)
+    Traceback (most recent call last):
+        ...
+    TypeError: John must be an integer
+
+Miss required arguments:
+
+    >>> integer_validator_instance.integer_validator()
+    Traceback (most recent call last):
+        ...
+    TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+Miss one argument:
+
+    >>> integer_validator_instance.integer_validator("John")
+    Traceback (most recent call last):
+        ...
+    TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+    >>> integer_validator_instance.integer_validator(33)
+    Traceback (most recent call last):
+        ...
+    TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+Add more than two arguments:
+
+    >>> integer_validator_instance.integer_validator("John", 33, 44)
+    Traceback (most recent call last):
+        ...
+    TypeError: integer_validator() takes 3 positional arguments but 4 were given

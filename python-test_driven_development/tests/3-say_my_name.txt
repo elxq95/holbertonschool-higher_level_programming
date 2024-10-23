@@ -1,0 +1,64 @@
+The ``say_my_name`` module
+
+Using ``say_my_name``
+
+First, import ``say_my_name`` from the ``3-say_my_name`` file:
+
+    >>> say_name = __import__('3-say_my_name').say_my_name
+
+Examples:
+---------
+Add first_name nd last_name:
+
+    >>> say_name("John", "Smith")
+    My name is John Smith
+
+Add one string in the argument:
+
+    >>> say_name("Bob")
+    My name is Bob
+
+Test for Type errors:
+---------------------
+
+Miss required arguments:
+
+    >>> say_name()
+    Traceback (most recent call last):
+    ...
+    TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+first_name is not a string:
+
+    >>> say_name(8, "brown")
+    Traceback (most recent call last):
+    ...
+    TypeError: first_name must be a string
+
+last_name is not a string:
+
+    >>> say_name("brown", 8)
+    Traceback (most recent call last):
+    ...
+    TypeError: last_name must be a string
+
+Both first_name and last_name are not strings:
+
+    >>> say_name(8, 8)
+    Traceback (most recent call last):
+    ...
+    TypeError: first_name must be a string
+
+Handle infinity:
+
+    >>> say_name(float('inf'), "White")
+    Traceback (most recent call last):
+    ...
+    TypeError: first_name must be a string
+
+Handle NaN:
+
+    >>> say_name(float('NaN'), "White")
+    Traceback (most recent call last):
+    ...
+    TypeError: first_name must be a string

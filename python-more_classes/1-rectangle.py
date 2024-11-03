@@ -25,7 +25,7 @@ class Rectangle:
 
     def __init__(self, width=0, height=0): #init method initializes the rectangle's dimensions
         self.width = width # Think of self as a placeholder for “this object right here.”
-        self.height = height
+        self.height = height #constructor
         # Purpose: This constructor allows an object of Rectangle to be 
         # created with specific width and height values.
 # The width and height properties define controlled access to the rectangle’s dimensions, 
@@ -34,14 +34,17 @@ class Rectangle:
     @property #getter -defines a getter for width and height, 
     # allowing them to be accessed as attributes (e.g., rect.width) 
     # rather than needing to call methods.
+    # A getter is a method used to retrieve the value of an attribute from an object.
 
     def width(self):
         return self.__width
 
     @width.setter #This decorator defines a setter for width. It allows validation when setting a new width value:
     def width(self, value):
+        # A setter is a method used to modify or set the value of an attribute in a controlled way.
         # self refers to the current instance of the class, 
         # and value is the new value that someone wants to set for width.
+        # allow us to validate or modify the value before actually updating the attribute
         if not isinstance(value, int):
             # isinstance(value, int) returns True if value is an integer, and False otherwise.
             raise TypeError("width must be an integer")
@@ -62,6 +65,10 @@ class Rectangle:
         return self.__height
 
     @height.setter
+    # A setter is a method used to modify or set the value of an attribute in a controlled way.
+        # self refers to the current instance of the class, 
+        # and value is the new value that someone wants to set for width.
+        # allow us to validate or modify the value before actually updating the attribute
     def height(self, value):
         if not isinstance(value, int):
             raise TypeError("height must be an integer")

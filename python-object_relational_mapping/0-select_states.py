@@ -18,16 +18,12 @@ if __name__ == "__main__":
         passwd=password,
         db=database
     )
-
     # Create a cursor to execute SQL queries
     cursor = db_connection.cursor()
     cursor.execute("SELECT * FROM states ORDER BY id ASC")
-    
     # Fetch and print each row
     for row in cursor.fetchall():
         print(row)
-
     # Close cursor and connection
     cursor.close()
     db_connection.close()
-    

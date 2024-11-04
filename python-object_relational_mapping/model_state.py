@@ -1,21 +1,19 @@
+
 #!/usr/bin/python3
-
-"""This module is a state model class"""
-# Instead of writing code to set up tables directly, you simply “declare” the structure in your class. 
-# QLAlchemy’s declarative base collects all this 
-# information from each class and handles the actual creation of tables in the database.
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String
+""" This module is a city model class"""
+from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
+from model_state import Base, State
+import sys
 
-Base = declarative_base()
 
-class State(Base):
-    """State class that represents the 'states' table in the database."""
-    __tablename__ = 'states'
+class City(Base):
+    """State class that represents the 'cities' table in the database."""
+    __tablename__ = 'cities'
 
     id = Column(Integer, primary_key=True, unique=True,
-                 autoincrement=True, nullable=False)
+                autoincrement=True, nullable=False)
     name = Column(String(128), nullable=False)
+    state_id = Column(Integer, ForeignKey('states.id'), nullable=False)
 
-    cities = relationship('City', back_populates='state')
+    state = relationship('State', back_populates='cities')

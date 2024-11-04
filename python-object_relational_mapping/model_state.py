@@ -1,19 +1,11 @@
-
 #!/usr/bin/python3
-""" This module is a city model class"""
-from sqlalchemy import Column, Integer, String, ForeignKey
-from sqlalchemy.orm import relationship
-from model_state import Base, State
+"""Start link class to table in database
+"""
 import sys
+from model_state import Base, State
 
+from sqlalchemy import (create_engine)
 
-class City(Base):
-    """State class that represents the 'cities' table in the database."""
-    __tablename__ = 'cities'
-
-    id = Column(Integer, primary_key=True, unique=True,
-                autoincrement=True, nullable=False)
-    name = Column(String(128), nullable=False)
-    state_id = Column(Integer, ForeignKey('states.id'), nullable=False)
-
-    state = relationship('State', back_populates='cities')
+if __name__ == "__main__":
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(sys.argv[1], sys.argv[2], sys.argv[3]), pool_pre_ping=True)
+    Base.metadata.create_all(engine)

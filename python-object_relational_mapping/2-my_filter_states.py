@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" This module is for filtering states where name matches the argument using MySQLdb"""
+""" This module is for filtering states starts witn 'n' using MySQLdb"""
 
 if __name__ == "__main__":
     import MySQLdb
@@ -14,8 +14,9 @@ if __name__ == "__main__":
 
     name_search = sys.argv[4]
     cursor = db_connection.cursor()
-    sql = "SELECT * FROM states WHERE name = BINARY %s ORDER BY id ASC"
-    cursor.execute(sql, (name_search,))
+    sql = "SELECT * FROM states WHERE name = BINARY %s " \
+        "ORDER BY id ASC"
+    cursor.execute(sql, (name_search))
     n_states = cursor.fetchall()
 
     for n in n_states:

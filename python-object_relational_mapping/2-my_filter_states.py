@@ -15,7 +15,7 @@ if __name__ == "__main__":
     name_search = sys.argv[4]
     cursor = db_connection.cursor()
     sql = "SELECT * FROM states WHERE name = BINARY %s " \
-        "ORDER BY id ASC"
+        "ORDER BY id ASC".format(name_search)
     cursor.execute(sql, (name_search))
     n_states = cursor.fetchall()
 

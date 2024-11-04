@@ -14,7 +14,7 @@ if __name__ =="__main__":
         )
     
     cursor = db_connection.cursor()
-    sql = "SELECT cities.id, cities.name, states.name FROM cities JOIN states ON states.id = cities.state_id" \
+    sql = "SELECT cities.id, cities.name, states.name FROM cities JOIN states ON states.id = cities.state_id "\
     "ORDER BY cities.id ASC"
     cursor.execute(sql)
     n_cities = cursor.fetchall()

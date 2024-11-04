@@ -1,8 +1,9 @@
-#/usr/bin/python3
+#!/usr/bin/python3
 
-""" THis module is for filtering states starts with'n' using MYSQLdb"""
+""" THis module is for filtering states starts with'n' using MYSQLdb - this task focuses
+on writing a script that prevents SQL injection """
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     import MySQLdb
     import sys
     # The MySQLdb.connect() function is used to establish a 

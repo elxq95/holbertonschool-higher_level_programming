@@ -1,27 +1,19 @@
 #!/usr/bin/python3
-"""Fetches all City objects and displays them grouped by State."""
-
-import sys
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+""" This module is a city model class"""
+from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy.orm import relationship
 from model_state import Base, State
-from model_city import City
+import sys
 
-if __name__ == "__main__":
-    # Database connection setup
-    username, password, dbname = sys.argv[1], sys.argv[2], sys.argv[3]
-    engine = create_engine(f'mysql+mysqldb://{username}:{password}@localhost/{dbname}', pool_pre_ping=True)
 
-    # Create a configured "Session" class and a session instance
-    Session = sessionmaker(bind=engine)
-    session = Session()
+class City(Base):
+    """State class that represents the 'cities' table in the database."""
+    __tablename__ = 'cities'
 
-    # Query for all City objects, joined with their respective State
-    results = session.query(State.name, City.id, City.name).join(City).order_by(City.id).all()
+    id = Column(Integer, primary_key=True, unique=True,
+                autoincrement=True, nullable=False)
+    name = Column(String(128), nullable=False)
+    state_id = Column(Integer, ForeignKey('states.id'), nullable=False)
 
-    # Print each city's details in the desired format
-    for state_name, city_id, city_name in results:
-        print(f"{state_name}: ({city_id}) {city_name}")
-
-    # Close the session
-    session.close()
+    state = relationship('State', back_populates='cities')
+    

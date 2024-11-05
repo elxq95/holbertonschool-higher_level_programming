@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This module prints the first State object from the database hbtn_0e_6_usa."""
+"""This module lists all State objects containing the letter 'a' from the database hbtn_0e_6_usa."""
 
 import sys
 from sqlalchemy import create_engine
@@ -19,14 +19,12 @@ if __name__ == "__main__":
     # Create a Session
     session = Session()
     
-    # Query the first State object ordered by id
-    first_state = session.query(State).order_by(State.id).first()
+    # Query State objects containing the letter 'a'
+    states_with_a = session.query(State).filter(State.name.like('%a%')).order_by(State.id).all()
     
-    # Display the result
-    if first_state:
-        print(f"{first_state.id}: {first_state.name}")
-    else:
-        print("Nothing")
+    # Display the results
+    for state in states_with_a:
+        print(f"{state.id}: {state.name}")
     
     # Close the session
     session.close()

@@ -7,8 +7,13 @@ app = Flask(__name__)
 
 # Function to read JSON data
 def read_json():
-    with open('products.json') as f:
-        return json.load(f)["products"]
+    try:
+        with open("products.json") as f:
+            data = json.load(f)
+            return data["products"]  # Ensure that this matches the JSON structure
+    except (json.JSONDecodeError, KeyError) as e:
+        print(f"Error reading JSON file: {e}")
+        return []
 
 # Function to read CSV data
 def read_csv():

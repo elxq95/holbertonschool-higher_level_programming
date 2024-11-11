@@ -3,7 +3,8 @@ import json
 import csv
 
 app = Flask(__name__)
-
+# read_json and read_csv Functions: These functions read data from the respective files. 
+# They handle possible file errors and return None if there’s an issue reading the file.
 def read_json(file_path):
     try:
         with open(file_path, 'r') as file:

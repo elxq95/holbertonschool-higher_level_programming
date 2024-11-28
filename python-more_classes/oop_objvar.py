@@ -50,10 +50,20 @@ class Robot:
         Yeah, they can do that."""
         print("Greetings, my masters call me {}.".format(self.name))
 
-    @classmethod
-    def how_many(cls):
+    @classmethod #the @classmethod decorator tells Python that how_many is a class method
+
+    # Unlike regular instance methods, which operate on individual instances of a class, 
+    # class methods operate on the class itself.
+    # Class methods take cls as their first parameter, which is a reference to the class itself, 
+    # not to an instance (whereas instance methods take self).
+    def how_many(cls): #cls is the class itself - cls would refer to Robot
+        #it allows the class method to access class-level variables and other class methods.
         """Prints the current population."""
         print("We have {:d} robots.".format(cls.population))
+        # cls.population is a class attribute named population.
+        # Class attributes are shared across all instances of the class, 
+        # meaning they are common to all objects created from this class.
+
 
 
 droid1 = Robot("R2-D2")

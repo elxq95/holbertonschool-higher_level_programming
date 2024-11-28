@@ -1,3 +1,4 @@
+"""The __init__ method is run as soon as an object of a class is instantiated (i.e. created)."""
 class Person:
     def __init__(self, name):
         self.name = name

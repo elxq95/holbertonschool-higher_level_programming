@@ -63,4 +63,9 @@ class Rectangle:
     def __str__(self):
         if self.__width == 0 or self.__height == 0:
             return ""
+        # This condition checks if either the width or height of the rectangle is 0. 
+        # If so, it returns an empty string (""), meaning that no visual representation is provided.
+	•	This is logical because a rectangle with a width or height of 0 has no visible area, so it shouldn’t produce any output when printed.
         return '\n'.join([self.__width * '#'] * self.__height)
+    # 	self.__width * '#': This creates a string of # characters equal to the width of the rectangle. 
+    # For example, if self.__width is 4, it creates the string "####".
